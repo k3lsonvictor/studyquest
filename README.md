@@ -170,3 +170,4 @@ PGlite usa uma conexão: os testes verificam as proteções transacionais e a re
 - Próximos passos: validação em Supabase hospedado, implantação HTTPS, recuperação de senha, paginação e testes de concorrência com múltiplas conexões.
 
 Referências utilizadas: [Next.js App Router](https://nextjs.org/docs/app/getting-started/installation) e [Supabase SSR](https://supabase.com/docs/guides/auth/server-side/creating-a-client).
+# studyquest
