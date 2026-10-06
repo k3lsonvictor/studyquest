@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "driver.js/dist/driver.css";
+@import "../features/tour/tour.css";
 @import "../features/avatar/avatar.css";
 @theme {
   --color-brand: #6952ce;

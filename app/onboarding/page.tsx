@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { familyData } from "@/services/family";
+import { familyData, session } from "@/services/family";
+import { ProductTour } from "@/features/tour/product-tour";
 import { PRODUCT_NAME } from "@/lib/config";
 import { mutate } from "@/app/actions";
 import { Card, PageTitle, Feedback, Field, Hidden } from "@/components/ui";
@@ -12,6 +13,7 @@ export default async function Onboarding({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const d = await familyData();
+  const { user } = await session(true);
   const q = await searchParams;
   const suggested = !d.family
     ? 1
@@ -42,6 +44,7 @@ export default async function Onboarding({
         ))}
       </div>
       <Feedback searchParams={searchParams} />
+      <ProductTour role="parent" identity={user.id} />
       <Card>
         {step === 1 ? (
           <form action={mutate} className="form">

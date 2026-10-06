@@ -48,7 +48,10 @@ test("avatar 3D: experimentar, cancelar, comprar, trocar, persistir e registrar 
   ).toBeVisible();
   await shirt.getByRole("button", { name: "Comprar por 15 pontos" }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await page.getByRole("button", { name: "Agora não" }).click();
+  await page
+    .getByRole("dialog")
+    .getByRole("button", { name: "Agora não" })
+    .click();
   await expect(page.getByRole("dialog")).not.toBeVisible();
   await expect(page.getByText("⭐ 15 pontos", { exact: true })).toBeVisible();
   await shirt.getByRole("button", { name: "Comprar por 15 pontos" }).click();

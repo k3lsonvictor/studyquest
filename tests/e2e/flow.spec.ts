@@ -20,7 +20,7 @@ test("jornada completa pelo navegador, modo criança e layout mobile", async ({
   await page.getByLabel("Nome da criança").fill("Lucas");
   await page.getByRole("button", { name: "Cadastrar criança" }).click();
   await page.getByLabel("Nome", { exact: true }).fill("Matemática");
-  await page.getByRole("button", { name: "Cadastrar matéria" }).click();
+  await page.getByRole("button", { name: "Cadastrar categoria" }).click();
   await page.getByRole("link", { name: "Ir para o início" }).click();
   await page
     .getByRole("link", { name: "Criar atividade", exact: false })
@@ -30,7 +30,7 @@ test("jornada completa pelo navegador, modo criança e layout mobile", async ({
     .getByRole("combobox", { name: "Criança", exact: true })
     .selectOption({ label: "🦊 Lucas" });
   await page
-    .getByRole("combobox", { name: "Matéria", exact: true })
+    .getByRole("combobox", { name: "Categoria ou matéria", exact: true })
     .selectOption({ label: "📚 Matemática" });
   await page.getByLabel("Título da atividade").fill("Missão de 50 pontos");
   await page.getByLabel("Pontos pela conquista").fill("50");

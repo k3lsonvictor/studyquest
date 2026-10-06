@@ -2,6 +2,7 @@ import Link from "next/link";
 import { session } from "@/services/family";
 import { PRODUCT_NAME, demoMode } from "@/lib/config";
 import { Navigation } from "@/components/navigation";
+import { ProductTour } from "@/features/tour/product-tour";
 export const dynamic = "force-dynamic";
 export default async function ParentLayout({
   children,
@@ -53,6 +54,7 @@ export default async function ParentLayout({
               reiniciar.
             </div>
           )}
+          <ProductTour role="parent" identity={user.id} />
           {children}
         </main>
       </div>

@@ -9,6 +9,7 @@ import { mutate } from "@/app/actions";
 import { ActivityCard } from "@/features/activities/cards";
 import { History } from "@/features/children/summary";
 import { AvatarProfile } from "@/features/avatar/profile";
+import { ProductTour } from "@/features/tour/product-tour";
 export const dynamic = "force-dynamic";
 export default async function Kid({
   params,
@@ -53,6 +54,7 @@ export default async function Kid({
         </div>
       )}
       <Feedback searchParams={searchParams} />
+      <ProductTour role="kid" identity={c.id} />
       <section className="kid-hero">
         <div className="between">
           <div>
@@ -70,6 +72,7 @@ export default async function Kid({
         {tabs.map(([key, icon, label]) => (
           <Link
             key={key}
+            data-tour-link={key}
             className={`button ${tab === key ? "" : "secondary"}`}
             href={`${path}?tab=${key}`}
           >
@@ -196,6 +199,7 @@ export default async function Kid({
         {tabs.map(([key, icon, label]) => (
           <Link
             key={key}
+            data-tour-link={key}
             className={tab === key ? "active" : ""}
             href={`${path}?tab=${key}`}
           >

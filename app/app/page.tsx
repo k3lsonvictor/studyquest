@@ -66,7 +66,7 @@ export default async function Dashboard({
       </div>
       <div className="dashboard-grid">
         <div className="stack">
-          <section>
+          <section data-tour="children">
             <div className="section-head">
               <h2>Nossos aventureiros</h2>
               <Link href="/app/children" className="text-link">

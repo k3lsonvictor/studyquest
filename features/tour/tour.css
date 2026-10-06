@@ -1,0 +1,121 @@
+.tour-help {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.tour-welcome {
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #dcd4f8;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #f0ebff, #faf8ff);
+}
+.tour-welcome-copy {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex: 1 1 290px;
+}
+.tour-welcome-copy strong {
+  font-size: 16px;
+}
+.tour-welcome-copy p {
+  margin: 5px 0 0;
+  color: #615876;
+  font-size: 13px;
+}
+.tour-spark {
+  color: #6952ce;
+  font-size: 32px;
+}
+.tour-help-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tour-help .button {
+  font-size: 13px;
+}
+.driver-popover.studyquest-tour {
+  background: #fff;
+  color: #282740;
+  border-radius: 18px;
+  padding: 25px;
+  width: 340px;
+  max-width: calc(100vw - 24px);
+  box-shadow: 0 16px 60px #20143d33;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.studyquest-tour .driver-popover-title {
+  font-size: 19px;
+  line-height: 1.3;
+  padding-right: 45px;
+}
+.studyquest-tour .driver-popover-description {
+  color: #615876;
+  font-size: 14px;
+  line-height: 1.65;
+  margin-top: 12px;
+}
+.studyquest-tour .driver-popover-footer {
+  gap: 12px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+.studyquest-tour .driver-popover-progress-text {
+  color: #615876;
+  font-size: 12px;
+}
+.studyquest-tour .driver-popover-footer button {
+  background: #6952ce;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 12px;
+  text-shadow: none;
+  font-size: 13px;
+  min-height: 44px;
+}
+.studyquest-tour .driver-popover-footer .driver-popover-prev-btn {
+  background: #f0ebff;
+  color: #514092;
+}
+.studyquest-tour .driver-popover-close-btn {
+  width: auto;
+  height: 44px;
+  padding: 0 12px;
+  top: 8px;
+  right: 5px;
+  color: #615876;
+  font-size: 12px;
+}
+.studyquest-tour button:focus-visible {
+  outline: 3px solid #bd9a39;
+  outline-offset: 3px;
+}
+.studyquest-tour .driver-popover-footer button:hover {
+  background: #5740b8;
+  color: white;
+}
+@media (max-width: 600px) {
+  .tour-welcome {
+    padding: 16px;
+  }
+  .tour-welcome .tour-help-actions {
+    width: 100%;
+  }
+  .tour-welcome .tour-help-actions .button:first-child {
+    flex: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .driver-popover,
+  .driver-overlay {
+    animation: none !important;
+    transition: none !important;
+  }
+}

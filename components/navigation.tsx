@@ -29,6 +29,7 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
         <Link
           key={url}
           href={url}
+          data-tour-link={url}
           className={
             path === url || (url !== "/app" && path.startsWith(url + "/"))
               ? "active"

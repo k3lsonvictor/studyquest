@@ -16,6 +16,14 @@ Os dados ficam em memória e são apagados ao encerrar/reiniciar `npm run demo`.
 
 ## Executar localmente com Supabase
 
+### Tour guiado da plataforma
+
+O primeiro acesso apresenta um convite **Conhecer a plataforma**. Depois de iniciar ou dispensar o convite, o botão **Como funciona** permite rever o guia da tela atual. Há dicas para a configuração inicial, responsáveis, missões e recompensas infantis e personalização do avatar. O guia apenas explica a interface: não envia formulários, compra itens nem altera pontos.
+
+A implementação utiliza [Driver.js](https://driverjs.com/docs/configuration), carregado sob demanda, com estilo próprio, progresso, Voltar, Próximo, Pular e Concluir. Aceita teclado (setas, Tab e Escape) e respeita a preferência por movimento reduzido. Elementos ausentes ou ocultos são excluídos dos passos, incluindo a navegação desktop no celular.
+
+Não requer migration. A preferência fica no `localStorage`, separada por conta de responsável/criança e versão do guia; em outro navegador ou após limpar os dados, o convite reaparece. A configuração inicial tem seu próprio convite. Os textos e alvos ficam em `features/tour/steps.ts`, o ciclo de vida em `features/tour/product-tour.tsx` e o estilo em `features/tour/tour.css`. `tests/e2e/tour.spec.ts` cobre convite, persistência, teclado, conclusão, celular e armazenamento bloqueado.
+
 ### Atualização: cabelos do avatar
 
 Se a loja já está instalada, execute somente `supabase/migrations/202610030002_avatar_hair.sql` no SQL Editor. Caso contrário, execute primeiro `202610030001_avatar_shop.sql` e depois a migration de cabelos. O schema completo já inclui ambas. A categoria **Cabelos** oferece longo castanho, longo dourado, chanel preto, rabo de cavalo ruivo e curto azul. Os cabelos podem ser combinados com chapéus; voltar ao cabelo curto original é grátis.
