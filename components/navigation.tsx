@@ -15,7 +15,7 @@ export function Navigation({ mobile = false }: { mobile?: boolean }) {
     : [
         ...main.slice(0, 1),
         ["/app/children", "☺", "Crianças"],
-        ["/app/subjects", "▦", "Matérias"],
+        ["/app/subjects", "▦", "Categorias"],
         ...main.slice(1, 4),
         ["/app/redemptions", "☆", "Resgates"],
         main[4],

@@ -55,19 +55,46 @@ export function SubjectForm({
   return (
     <form action={mutate} className="form">
       <Hidden values={{ action: "subject", family_id: familyId, returnTo }} />
-      <h2>Nova matéria</h2>
+      <h2>Nova categoria ou matéria</h2>
       <Field label="Nome">
         <input
           name="name"
           required
           maxLength={100}
-          placeholder="Ex.: Matemática"
+          placeholder="Ex.: Rotina, Comportamento ou Matemática"
+          list="category-suggestions"
         />
+        <datalist id="category-suggestions">
+          {[
+            "Estudos",
+            "Rotina",
+            "Comportamento",
+            "Educação",
+            "Cuidados pessoais",
+            "Tarefas de casa",
+          ].map((name) => (
+            <option key={name} value={name} />
+          ))}
+        </datalist>
       </Field>
       <div className="grid-2">
         <Field label="Ícone">
           <select name="icon">
-            {["📚", "🔢", "📖", "🔬", "🌎", "🎨", "🎵", "🏃"].map((i) => (
+            {[
+              "📚",
+              "🔢",
+              "📖",
+              "🔬",
+              "🌎",
+              "🎨",
+              "🎵",
+              "🏃",
+              "🏠",
+              "🤝",
+              "💬",
+              "🧼",
+              "🌱",
+            ].map((i) => (
               <option key={i}>{i}</option>
             ))}
           </select>
@@ -76,7 +103,11 @@ export function SubjectForm({
           <input name="color" type="color" defaultValue="#6d5ce7" />
         </Field>
       </div>
-      <Submit>Cadastrar matéria</Submit>
+      <p className="small muted">
+        Agrupe estudos, tarefas do dia a dia e atitudes que vocês querem
+        praticar.
+      </p>
+      <Submit>Cadastrar categoria</Submit>
     </form>
   );
 }
@@ -174,7 +205,7 @@ export function ActivityForm({
             ))}
           </select>
         </Field>
-        <Field label="Matéria">
+        <Field label="Categoria ou matéria">
           <select
             name="subject_id"
             required
@@ -197,7 +228,7 @@ export function ActivityForm({
           required
           maxLength={160}
           defaultValue={activity?.title}
-          placeholder="Ex.: Resolver 10 questões de matemática"
+          placeholder="Ex.: Arrumar a cama, respeitar os combinados ou ler"
         />
       </Field>
       <Field label="Descrição">
@@ -240,6 +271,66 @@ export function ActivityForm({
         missão.
       </p>
       <Submit>Salvar atividade</Submit>
+    </form>
+  );
+}
+
+export function DeductPointsForm({
+  childId,
+  balance,
+}: {
+  childId: string;
+  balance: number;
+}) {
+  return (
+    <form action={mutate} className="form">
+      <Hidden
+        values={{
+          action: "deduct_points",
+          child_id: childId,
+          request_id: crypto.randomUUID(),
+          returnTo: `/app/children/${childId}`,
+        }}
+      />
+      <h2>Descontar pontos</h2>
+      <p className="small muted">
+        Registre o combinado que não foi cumprido. O motivo e o desconto ficam
+        no histórico da criança.
+      </p>
+      <Field label="Pontos a descontar">
+        <input
+          name="amount"
+          type="number"
+          required
+          min={1}
+          max={Math.min(balance, 100000)}
+          step={1}
+          disabled={balance <= 0}
+        />
+      </Field>
+      <Field label="Motivo do desconto">
+        <textarea
+          name="reason"
+          required
+          maxLength={500}
+          placeholder="Ex.: Não cumpriu o combinado de guardar os brinquedos"
+          disabled={balance <= 0}
+        />
+      </Field>
+      <label className="check">
+        <input
+          name="confirmed"
+          type="checkbox"
+          required
+          disabled={balance <= 0}
+        />
+        Confirmo o desconto e o motivo informado.
+      </label>
+      {balance <= 0 ? (
+        <p className="small muted">Não há pontos disponíveis para descontar.</p>
+      ) : (
+        <Submit>Confirmar desconto</Submit>
+      )}
     </form>
   );
 }

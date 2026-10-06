@@ -4,7 +4,7 @@ import { balanceOf } from "@/lib/format";
 import { PageTitle, Card, Feedback, Empty, Badge } from "@/components/ui";
 import { History } from "@/features/children/summary";
 import { ActivityCard } from "@/features/activities/cards";
-import { ChildForm } from "@/features/manage/forms";
+import { ChildForm, DeductPointsForm } from "@/features/manage/forms";
 export default async function ChildDetail({
   params,
   searchParams,
@@ -47,6 +47,12 @@ export default async function ChildDetail({
           />
         </div>
         <div className="stack">
+          <Card>
+            <DeductPointsForm
+              childId={id}
+              balance={balanceOf(d.transactions, id)}
+            />
+          </Card>
           <Card>
             <ChildForm
               familyId={d.family.id}

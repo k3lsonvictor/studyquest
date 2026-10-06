@@ -69,7 +69,7 @@ export default async function Onboarding({
             <SubjectForm familyId={d.family!.id} returnTo="/onboarding" />
             {d.subjects.length > 0 && (
               <p className="muted small" style={{ marginTop: 16 }}>
-                {d.subjects.length} matéria(s) cadastrada(s).
+                {d.subjects.length} categoria(s) cadastrada(s).
               </p>
             )}
           </>

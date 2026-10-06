@@ -25,7 +25,7 @@ export default async function Profile({
           <div className="divider" />
           <h3>{d.family?.name || "Crie sua família"}</h3>
           <p className="muted small">
-            {d.children.length} criança(s) · {d.subjects.length} matéria(s)
+            {d.children.length} criança(s) · {d.subjects.length} categoria(s)
           </p>
           <form action={logout} style={{ marginTop: 24 }}>
             <Submit variant="ghost">Sair da conta</Submit>

@@ -39,7 +39,7 @@ export default async function Activities({
             ))}
           </select>
         </Field>
-        <Field label="Matéria">
+        <Field label="Categoria ou matéria">
           <select name="subject" defaultValue={q.subject || ""}>
             <option value="">Todas</option>
             {d.subjects.map((s) => (

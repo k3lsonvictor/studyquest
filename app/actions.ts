@@ -103,6 +103,30 @@ export async function mutate(f: FormData) {
   let error: { message: string; code?: string } | null = null;
   let message = "Salvo com sucesso!";
   switch (action) {
+    case "deduct_points": {
+      const amount = Number(f.get("amount"));
+      const reason = text(f, "reason", 500);
+      if (
+        !Number.isInteger(amount) ||
+        amount < 1 ||
+        amount > 100000 ||
+        !reason ||
+        f.get("confirmed") !== "on"
+      )
+        finish(
+          path,
+          "Informe os pontos, o motivo e confirme o desconto.",
+          true,
+        );
+      ({ error } = await db.rpc("deduct_points", {
+        p_child: text(f, "child_id"),
+        p_amount: amount,
+        p_reason: reason,
+        p_request: text(f, "request_id"),
+      }));
+      message = "Desconto registrado no histórico de pontos.";
+      break;
+    }
     case "avatar_buy":
       ({ error } = await db.rpc("buy_avatar_item", {
         p_child: kid || text(f, "child_id"),

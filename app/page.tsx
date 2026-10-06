@@ -83,7 +83,7 @@ export default async function Home({
           [
             "01",
             "Crie pequenas missões",
-            "Organize matérias, atividades e pontos no seu ritmo.",
+            "Organize estudos, rotina, comportamento e pontos no seu ritmo.",
           ],
           [
             "02",

@@ -16,6 +16,7 @@ export async function database({ fromMigrations = false } = {}) {
         "migrations/202610010002_seed_function.sql",
         "migrations/202610030001_avatar_shop.sql",
         "migrations/202610030002_avatar_hair.sql",
+        "migrations/202610050001_daily_life_points.sql",
       ]
     : ["schema.sql", "seed.sql"];
   for (const file of files)

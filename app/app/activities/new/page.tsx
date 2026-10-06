@@ -31,7 +31,7 @@ export default async function NewActivity({
           <p>
             Primeiro,{" "}
             <Link className="text-link" href="/app/subjects">
-              cadastre uma matéria →
+              cadastre uma categoria ou matéria →
             </Link>
           </p>
         ) : a && !["pending", "rejected"].includes(a.status) ? (

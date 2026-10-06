@@ -13,7 +13,7 @@ export default async function Subjects({
     <>
       <PageTitle
         title="Um mundo para descobrir"
-        description="Organize as missões por matérias ou categorias."
+        description="Organize estudos, rotina, comportamento, educação e tarefas de casa."
       />
       <Feedback searchParams={searchParams} />
       <div className="grid-2">
@@ -31,7 +31,7 @@ export default async function Subjects({
               </div>
             ))
           ) : (
-            <Empty>Cadastre sua primeira matéria.</Empty>
+            <Empty>Cadastre sua primeira categoria ou matéria.</Empty>
           )}
         </Card>
         <Card>
